@@ -14,28 +14,46 @@
 			<a class="btn btn-primary  btn-sm btn-block" href="">Create User</a>
 			<table class="table table-sm">
 				<tr>
-					<th></th>
 					<th>User</th>
-					<th>Orders</th>
+					<th>Email</th>
 				</tr>
+
+				{% for user in users %}
+					<tr>
+						<td>{{user.name}}</td>
+						<td>{{user.email}}</td>
+					</tr>
+				{% endfor %}
 
 			</table>
 		</div>
 	</div>
 
 	<div class="col-md-7">
-		<h5>LAST 5 ORDERS</h5>
+		<h5>LAST 5 UPLOADS</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="">Create Order</a>
+			<a class="btn btn-primary  btn-sm btn-block" href="">Create Upload</a>
 			<table class="table table-sm">
 				<tr>
-					<th>Product</th>
-					<th>Date Ordered</th>
-					<th>Status</th>
+					<th>User</th>
+					<th>Picture</th>
+					<th>Date Uploaded</th>
 					<th>Update</th>
 					<th>Remove</th>
 				</tr>
+
+				{% for upload in uploads %}
+					<tr>
+						<td>{{upload.user}}</td>
+						<td>{{upload.picture}}</td>
+						<td>{{upload.date_uploaded}}</td>
+						<td><a href="">Update</a></td>
+						<td><a href="">Delete</a></td>
+					</tr>
+				{% endfor %}
+
+
 
 			</table>
 		</div>

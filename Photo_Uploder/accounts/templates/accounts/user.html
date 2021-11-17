@@ -53,13 +53,22 @@
 		<div class="card card-body">
 			<table class="table table-sm">
 				<tr>
-					<th>Product</th>
-					<th>Category</th>
-					<th>Date Orderd</th>
-					<th>Status</th>
+					<th>Picture</th>
+					<th>Size</th>
+					<th>Date Uploaded</th>
 					<th>Update</th>
 					<th>Remove</th>
 				</tr>
+
+				{% for upload in uploads %}
+				<tr>
+					<td>{{upload.picture}}</td>
+					<td>{{upload.picture.size}}</td>
+					<td>{{upload.date_created}}</td>
+					<td><a href="">Update</a></td>
+					<td><a href="">Delete</a></td>
+				</tr>
+				{% endfor %}
 
 			</table>
 		</div>

@@ -8,7 +8,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home),
-    path('user/', views.user),
+    path('user/<str:pk>/', views.user),
     path('picture/', views.picture),
 
 ]
