@@ -14,12 +14,14 @@
 			<a class="btn btn-primary  btn-sm btn-block" href="">Create User</a>
 			<table class="table table-sm">
 				<tr>
+					<th></th>
 					<th>User</th>
 					<th>Email</th>
 				</tr>
 
 				{% for user in users %}
 					<tr>
+						<td><a class="btn btn-sm btn-info" href="{% url 'user' user.id %}">View</a></td>
 						<td>{{user.name}}</td>
 						<td>{{user.email}}</td>
 					</tr>
@@ -33,7 +35,7 @@
 		<h5>LAST 5 UPLOADS</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="">Create Upload</a>
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_upload' %}">Create Upload</a>
 			<table class="table table-sm">
 				<tr>
 					<th>User</th>
@@ -48,8 +50,8 @@
 						<td>{{upload.user}}</td>
 						<td>{{upload.picture}}</td>
 						<td>{{upload.date_uploaded}}</td>
-						<td><a href="">Update</a></td>
-						<td><a href="">Delete</a></td>
+						<td><a class="btn btn-sm btn-info" href="">Update</a></td>
+						<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
 					</tr>
 				{% endfor %}
 

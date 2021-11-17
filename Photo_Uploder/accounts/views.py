@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
+from .forms import UploadForm
 
 
 def home(request):
@@ -20,11 +21,24 @@ def user(request, pk):
     users = User.objects.get(id=pk)
 
     uploads = users.upload_set.all()
+    upload_count = uploads.count()
 
-    context = {'user': users, 'uploads': uploads}
-    return render(request, 'accounts/user.html')
+    context = {'user': users, 'uploads': uploads, 'upload_count': upload_count}
+    return render(request, 'accounts/user.html', context)
 
 
 def picture(request):
     pictures = Picture.objects.all()
     return render(request, 'accounts/pictures.html', {'pictures': pictures})
+
+def createUpload(request):
+
+    form = UploadForm()
+    if request.method == 'POST':
+        form = UploadForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context = {'form':form}
+    return render(request, 'accounts/upload_form.html', context)
