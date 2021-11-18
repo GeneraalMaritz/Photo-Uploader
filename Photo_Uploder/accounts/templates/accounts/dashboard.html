@@ -50,7 +50,7 @@
 						<td>{{upload.user}}</td>
 						<td>{{upload.picture}}</td>
 						<td>{{upload.date_uploaded}}</td>
-						<td><a class="btn btn-sm btn-info" href="">Update</a></td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'update_upload' upload.id %}">Update</a></td>
 						<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
 					</tr>
 				{% endfor %}

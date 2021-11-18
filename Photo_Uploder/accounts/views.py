@@ -31,8 +31,8 @@ def picture(request):
     pictures = Picture.objects.all()
     return render(request, 'accounts/pictures.html', {'pictures': pictures})
 
-def createUpload(request):
 
+def createUpload(request):
     form = UploadForm()
     if request.method == 'POST':
         form = UploadForm(request.POST)
@@ -40,5 +40,19 @@ def createUpload(request):
             form.save()
             return redirect('/')
 
-    context = {'form':form}
+    context = {'form': form}
+    return render(request, 'accounts/upload_form.html', context)
+
+
+def updateUpload(request, pk):
+    upload = Upload.objects.get(id=pk)
+    form = UploadForm(instance=upload)
+
+    if request.method == 'POST':
+        form = UploadForm(request.POST, instance=upload)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context = {'form': form}
     return render(request, 'accounts/upload_form.html', context)
