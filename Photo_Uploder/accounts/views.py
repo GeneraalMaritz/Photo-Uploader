@@ -32,7 +32,8 @@ def picture(request):
     return render(request, 'accounts/pictures.html', {'pictures': pictures})
 
 
-def createUpload(request):
+def createUpload(request, pk):
+    users = User.objects.get(id=pk)
     form = UploadForm()
     if request.method == 'POST':
         form = UploadForm(request.POST)
@@ -40,7 +41,7 @@ def createUpload(request):
             form.save()
             return redirect('/')
 
-    context = {'form': form}
+    context = {'form': form, 'users': users}
     return render(request, 'accounts/upload_form.html', context)
 
 
@@ -56,3 +57,13 @@ def updateUpload(request, pk):
 
     context = {'form': form}
     return render(request, 'accounts/upload_form.html', context)
+
+
+def deleteUpload(request, pk):
+    upload = Upload.objects.get(id=pk)
+
+    if request.method == "POST":
+        upload.delete()
+        return redirect('/')
+    context = {'item': upload}
+    return render(request, 'accounts/delete.html', context)

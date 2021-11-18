@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('user/<str:pk>/', views.user, name="user"),
     path('picture/', views.picture, name="pictures"),
-    path('create_upload/', views.createUpload, name="create_upload"),
-    path('update_upload/<str:pk>/', views.updateUpload, name="update_upload")
+    path('create_upload/<str:pk>/', views.createUpload, name="create_upload"),
+    path('update_upload/<str:pk>/', views.updateUpload, name="update_upload"),
+    path('delete_upload/<str:pk>/', views.deleteUpload, name="delete_upload")
 ]

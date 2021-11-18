@@ -10,7 +10,7 @@
 			<h5>User: {{user.name}}</h5>
 			<hr>
 			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update User</a>
-			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete User</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_upload' user.id %}">Add Upload</a>
 
 		</div>
 	</div>
@@ -65,8 +65,8 @@
 					<td>{{upload.picture}}</td>
 					<td>{{upload.picture.size}}</td>
 					<td>{{upload.date_uploaded}}</td>
-					<td><a class="btn btn-sm btn-info" href="">Update</a></td>
-					<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'update_upload' upload.id %}">Update</a></td>
+					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_upload' upload.id %}">Delete</a></td>
 				</tr>
 				{% endfor %}
 
