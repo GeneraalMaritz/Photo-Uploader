@@ -8,5 +8,8 @@ urlpatterns = [
     path('picture/', views.picture, name="pictures"),
     path('create_upload/<str:pk>/', views.createUpload, name="create_upload"),
     path('update_upload/<str:pk>/', views.updateUpload, name="update_upload"),
-    path('delete_upload/<str:pk>/', views.deleteUpload, name="delete_upload")
+    path('delete_upload/<str:pk>/', views.deleteUpload, name="delete_upload"),
+    path('add_picture/', views.addPicture, name="add_picture"),
+    path('view_picture/<str:pk>/', views.viewPicture, name="view_picture"),
+    path('gallery', views.gallery, name="gallery")
 ]

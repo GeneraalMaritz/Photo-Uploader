@@ -67,3 +67,15 @@ def deleteUpload(request, pk):
         return redirect('/')
     context = {'item': upload}
     return render(request, 'accounts/delete.html', context)
+
+
+def addPicture(request):
+    return render(request, 'accounts/add_picture.html')
+
+
+def viewPicture(request, pk):
+    return render(request, 'accounts/view_picture.html')
+
+
+def gallery(request):
+    return render(request, 'accounts/gallery.html')

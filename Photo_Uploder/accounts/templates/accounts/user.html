@@ -10,7 +10,7 @@
 			<h5>User: {{user.name}}</h5>
 			<hr>
 			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update User</a>
-			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_upload' user.id %}">Add Upload</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'add_picture' %}">Add Upload</a>
 
 		</div>
 	</div>
@@ -26,7 +26,7 @@
 
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>Total Orders</h5>
+			<h5>Total Uploads</h5>
 			<hr>
 			<h1 style="text-align: center;padding: 10px">{{upload_count}}</h1>
 		</div>
