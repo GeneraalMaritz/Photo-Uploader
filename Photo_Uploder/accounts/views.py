@@ -73,7 +73,7 @@ def addPicture(request):
     return render(request, 'accounts/add_picture.html')
 
 
-def viewPicture(request, pk):
+def viewPicture(request):
     return render(request, 'accounts/view_picture.html')
 
 

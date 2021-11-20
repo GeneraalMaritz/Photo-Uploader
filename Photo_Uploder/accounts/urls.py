@@ -10,6 +10,6 @@ urlpatterns = [
     path('update_upload/<str:pk>/', views.updateUpload, name="update_upload"),
     path('delete_upload/<str:pk>/', views.deleteUpload, name="delete_upload"),
     path('add_picture/', views.addPicture, name="add_picture"),
-    path('view_picture/<str:pk>/', views.viewPicture, name="view_picture"),
+    path('view_picture/', views.viewPicture, name="view_picture"),
     path('gallery', views.gallery, name="gallery")
 ]
