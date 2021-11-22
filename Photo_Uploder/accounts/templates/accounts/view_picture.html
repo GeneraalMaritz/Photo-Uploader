@@ -9,8 +9,8 @@
         <div class="col">
             <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
             <div style="height: 90vh;">
-                <img style="max-width: 100%; max-height: 100%;" src="https://cdn.euroncap.com/media/26111/2017_ford_mustang_uncrashed-image-gallery.jpg?mode=crop&width=359&height=235">
-                <p>Description</p>
+                <img style="max-width: 100%; max-height: 100%;" src="{{picture.picture.url}}">
+                <p>{{picture.description}}</p>
             </div>
 
         </div>

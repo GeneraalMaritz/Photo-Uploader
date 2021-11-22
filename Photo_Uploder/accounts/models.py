@@ -13,9 +13,18 @@ class User(models.Model):
         return self.name
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=100, null=False, blank=False)
+
+    def __str__(self):
+        return self.name
+
+
 class Picture(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    picture = models.ImageField(null=False, blank=False, default="Image")
     name = models.CharField(max_length=200, null=True)
-    size = models.IntegerField(null=True)
+    description = models.TextField(default="Description")
     date_uploaded = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
@@ -27,5 +36,7 @@ class Upload(models.Model):
     picture = models.ForeignKey(Picture, null=True, on_delete=models.SET_NULL)
     date_uploaded = models.DateTimeField(auto_now_add=True, null=True)
 
-    def __str__(self):
-        return self.picture.name
+
+
+
+

@@ -13,14 +13,14 @@
 					<table class="table">
 						<tr>
 							<th>Picture</th>
-							<th>Size</th>
+							<th>Description</th>
 							<th>Date Uploaded</th>
 						</tr>
 
 						{% for i in pictures %}
 						<tr>
 							<td>{{i.name}}</td>
-							<td>{{i.size}}</td>
+							<td>{{i.description}}</td>
 							<td>{{i.date_uploaded}}</td>
 						</tr>
 						{% endfor %}
