@@ -66,6 +66,7 @@ def home(request):
     return render(request, 'accounts/dashboard.html', context)
 
 
+
 @login_required(login_url='login')
 def user(request, pk):
     users = User.objects.get(id=pk)
@@ -142,6 +143,7 @@ def addPicture(request):
             category=category,
             description=data['description'],
             picture=image,
+            name=data['name'],
         )
 
         return redirect('gallery')
